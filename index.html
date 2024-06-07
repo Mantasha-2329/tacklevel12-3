@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Webpage</title>
+    <script type="text/javascript" src="script.js">
+            
+            
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    </head>
+    <body bgcolor="pink">
+        <div class="header">
+        <h1 style="color: blueviolet;">Cognifyz where data meets intelligence</h1>
+        </div>
+        <div class="col-1">
+        <p style="color: aquamarine; font-family: serif; size: 3px;"><b>Cognifyz Technologies</b> is a leading technology company that specializes in 
+            the daynamic field of data science and excels in delivering impactful projects and solution.</p>
+        </div>
+        <div class="col-2">
+        <p style="font-size: small; color: #000;">The company offers a wide range of products and services, 
+            including artificial intelligence(AI), machine learning(ML), and data analytics tools.</p>
+        </div>
+        <img src="why-ecommerce-need-mobile-apps.webp" height="400" width="600" >
+        <button onclick="myfun()">
+            Click me
+        </button>
+        <h3 id="DEMO" style="color: tomato;"></h3>
+    
+        
+        <h2>form validation</h2>
+        <form name="rform" onsubmit="returnvalidationform()">
+            <p>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter yor name"/>
+                <span id="name-error" class="error-message"></span>
+            </p>
+            <p>
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" placeholder="Enter your address"/>
+                <span id="address-error" class="error-message"></span>
+            </p>
+            <p>
+                <label for="email">Email Address:</label>
+                <input type="text" id="email" name="EMail" placeholder="Enter your email"/>
+                <span id="email-error" class="error-message"></span>
+            </p>
+            <p>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password"/>
+                <span id="password" class="error-message"></span>
+            </p>
+            <p>
+                <input type="submit" value="submit" name="submit"/>
+                <input type="reset" value="reset" name="reset"/>
+            </p>
+            </form>
+            <h1> JSON Placeholder</h1>
+    <div id="posts-container"></div>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('https://jsonplaceholder.typicode.com/posts')
+                .then(response => response.json())
+                .then(posts => {
+                    const postsContainer = document.getElementById('posts-container');
+                    posts.forEach(post => {
+                        postsContainer.innerHTML += `
+                            <div class="post">
+                                <h2 class="post-title">${post.title}</h2>
+                                <p>${post.body}</p>
+                            </div>
+                        `;
+                    });
+                })
+                .catch(error => console.error('Error fetching posts:', error));
+        });
+    </script>
+
+        
+    </body>
+</html>
